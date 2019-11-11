@@ -1,0 +1,38 @@
+{
+  "name": "sks-electron",
+  "version": "1.0.0",
+  "description": "Example of WebMap application on electron",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "cross-platform-desktop",
+    "directories": {
+      "output": "../dist"
+    },
+    "asar":false,
+    "extraResources": {
+      "from": "./api",
+      "to": "./app/api/",
+      "filter": [
+        "**/*"
+      ]
+    },
+    "mac": {
+      "category": "cross-platform-desktop"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
+  },
+  "author": "Mauricio Rojas",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.0.1",
+    "electron-builder": "^22.1.0"
+  }
+}
