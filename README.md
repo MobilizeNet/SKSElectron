@@ -34,6 +34,5 @@ Just follow these steps:
 
  And that's all after that you will have a folder `Electron\dist` with an exe that is your installer for a Windows Desktop App. You can run the same on a Mac to build binaries fror OSX
  
-
-
+![Screenshot](./Screenshot.png)
 
