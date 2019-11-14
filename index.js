@@ -16,10 +16,13 @@ function createWindow () {
     }
   })
   // Hide main menu
-  Menu.setApplicationMenu(null);
+  //Menu.setApplicationMenu(null);
   // and load the index.html of the app.
-  mainWindow.loadURL('http://localhost:5000')
-  
+  mainWindow.loadURL('http://localhost:5000');
+  if (os.platform() === 'darwin') {
+    // Currently electron mac requires this reload
+    setTimeout(function(){ mainWindow.reload(); }, 3000);
+  }
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
   //mainWindow.setMenuBarVisibility(false);
@@ -64,8 +67,8 @@ function startBackEnd() {
   var apiDir = path.join(__dirname, '.\\api\\win-x64');
   var apipath = path.join(__dirname, '.\\api\\win-x64\\SKS.exe')
   if (os.platform() === 'darwin') {
-    apipath = path.join(__dirname, '..//api//osx-x64//sks')
-    apiDir  = path.join(__dirname, './/api//osx');
+    apipath = path.join(__dirname, './/api//osx-x64//SKS')
+    apiDir  = path.join(__dirname, './/api//osx-x64');
   }
   console.log("Starting");
  
